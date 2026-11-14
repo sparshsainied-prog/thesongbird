@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>The Songbird | A 1960s shack on the water at Alonnah, Bruny Island</title>
+<meta name="description" content="A restored 1960s shack for two on the D'Entrecasteaux Channel, with a wood fire, a king bed and an antique bath on the deck. A website idea made by Lamplit Studio for The Songbird.">
+<meta property="og:title" content="The Songbird, Bruny Island">
+<meta property="og:description" content="A website idea made by Lamplit Studio for The Songbird. Not their official site.">
+<meta property="og:image" content="https://sparshsainied-prog.github.io/thesongbird/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sparshsainied-prog.github.io/thesongbird/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23A7907E'/%3E%3Cpath d='M7 20c3-5 8-7 13-6l4-3 1 2-3 2c1 4-2 8-8 8-3 0-5-1-7-3z' fill='%23EEE8E0'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="img/bath-1440.jpg" media="(min-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/bathwin-700.jpg" media="(max-width: 699px)" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Italiana&display=swap">
+<style>
+/* Tokens from the stay itself (see brand.md): the taupe of their own logo, the dark timber and evening
+   shadow in their photos, and the natural linen on the king bed. Italiana is the nearest free match
+   to the thin flared capitals of their logo; EB Garamond reads like the old books on their shelves. */
+:root{
+  --dark:#2A241C;       /* timber and evening shadow */
+  --light:#EEE8E0;      /* bed linen, panelling in warm light */
+  --taupe:#A7907E;      /* their logo square */
+  --taupe-ink:#6E5A4A;  /* the taupe, deepened for small text */
+  --line:#D9CFC3;
+  --display:"Italiana","Didot","Bodoni 72",serif;
+  --text:"EB Garamond","Iowan Old Style",Georgia,serif;
+  --gut:max(20px, env(safe-area-inset-left, 0px));
+  --gut-r:max(20px, env(safe-area-inset-right, 0px));
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--light);color:var(--dark);font-family:var(--text);font-size:19px;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--taupe-ink);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--taupe-ink);outline-offset:3px}
+.inside :focus-visible,.book :focus-visible,footer :focus-visible,.words :focus-visible{outline-color:var(--light)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+.skip{position:absolute;left:-9999px;top:0}
+.skip:focus{left:12px;top:12px;z-index:60;background:var(--light);padding:8px 12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.strip{background:var(--dark);color:var(--light);font-size:15px;text-align:center;line-height:1.4;
+  padding:8px var(--gut-r) 8px var(--gut);padding-top:calc(8px + env(safe-area-inset-top,0px))}
+
+/* Header: their logo lockup, and one ask */
+.top{position:absolute;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:14px var(--gut-r) 0 var(--gut)}
+.logo{display:inline-grid;justify-items:start;text-decoration:none;color:var(--dark);line-height:1}
+.logo .t{font-family:var(--display);font-size:17px;margin-left:4px}
+.logo .s{font-family:var(--display);font-size:30px;letter-spacing:.06em} /* slop-ok: the capitals of their own logo */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:2px;border:0;cursor:pointer;
+  font-family:var(--text);font-size:17px;text-decoration:none;white-space:nowrap;background:var(--dark);color:var(--light)}
+.btn:hover{background:#3d352a}
+.btn.taupe{background:var(--taupe);color:var(--dark)}
+.btn.taupe:hover{background:#b8a392}
+.btn.line{background:transparent;color:var(--dark);box-shadow:inset 0 0 0 1.5px var(--dark)}
+.btn.line:hover{background:rgba(42,36,28,.06)}
+@media (max-width:380px){.logo .s{font-size:25px}.top .btn{padding:0 14px;font-size:16px}}
+
+/* ---------- Morning: the linen curtains part on the bath and the channel ---------- */
+.dawn{position:relative;height:340vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--dark)}
+.view{position:absolute;inset:0;will-change:transform;transform-origin:50% 60%}
+.view img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.curtain{position:absolute;top:-2%;bottom:-2%;width:54%;z-index:4;will-change:transform;transform:translate3d(-30%,0,0)}
+.c-r{transform:translate3d(30%,0,0)}
+.c-l::after,.c-r::after{content:"";position:absolute;top:0;bottom:0;width:18px}
+.c-l::after{right:0;background:linear-gradient(to left,rgba(42,36,28,.28),rgba(42,36,28,0))}
+.c-r::after{left:0;background:linear-gradient(to right,rgba(42,36,28,.28),rgba(42,36,28,0))}
+.curtain svg{width:100%;height:100%;display:block}
+.c-l{left:0}
+.c-r{right:0}
+.rod{position:absolute;left:0;right:0;top:0;height:16px;z-index:5;background:#6b5a46;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.bird{position:absolute;z-index:6;left:0;top:22%;width:46px;will-change:transform;opacity:0}
+.bird svg{width:100%;height:auto;display:block}
+.words{position:absolute;z-index:7;color:var(--light);left:var(--gut);right:var(--gut-r);will-change:transform,opacity}
+.w1{top:clamp(100px,17vh,170px);max-width:620px}
+.w1 .where{font-size:18px}
+.w1 h1{font-size:clamp(46px,7vw,104px);margin-top:10px;text-shadow:0 2px 18px rgba(20,15,10,.55)}
+.w1 .lede{font-size:clamp(18px,1.6vw,21px);margin-top:14px;max-width:28em;text-shadow:0 1px 10px rgba(20,15,10,.7)}
+.w1 .panel{background:rgba(42,36,28,.72);padding:clamp(18px,2.4vw,30px) clamp(20px,2.6vw,34px);border-radius:2px}
+.w2{bottom:clamp(26px,8vh,80px);max-width:520px;opacity:0}
+.w2 .panel{background:rgba(42,36,28,.78);padding:20px 24px;border-radius:2px}
+.w2 h2{font-size:clamp(30px,3.4vw,44px)}
+.w2 p{margin-top:8px;font-size:18px}
+@media (max-width:699px){
+  .dawn{height:300vh}
+  .w1{top:auto;bottom:clamp(20px,5vh,48px)}
+  .w1 h1{font-size:clamp(36px,11.5vw,56px)}
+  .w1 .lede{font-size:17px}
+  .curtain{transform:translate3d(-42%,0,0)}
+  .c-r{transform:translate3d(42%,0,0)}
+  .view img{object-position:50% 60%}
+  .curtain{width:60%}
+}
+@media (max-width:699px) and (max-height:700px){.w1 .lede{display:none}}
+@media (max-height:600px){.w1 .lede{display:none}.w1 h1{font-size:clamp(36px,5vw,60px)}}
+
+/* ---------- Sections ---------- */
+.wrap{padding-left:var(--gut);padding-right:var(--gut-r)}
+.inner{max-width:1180px;margin:0 auto}
+section{scroll-margin-top:16px}
+h2.big{font-size:clamp(40px,5.4vw,72px)}
+.lede{font-size:clamp(19px,1.7vw,22px);max-width:32em}
+blockquote{margin:0}
+.quote{font-style:italic;font-size:clamp(21px,2vw,26px);line-height:1.4}
+.who{font-size:16px;color:var(--taupe-ink);margin-top:6px}
+.cap{font-size:15.5px;color:var(--taupe-ink);margin-top:8px;font-style:italic}
+figure{margin:0}
+.ph img{width:100%;object-fit:cover;border-radius:2px;background:#d8cdbf}
+
+/* Her story: their own words beside the room they made */
+.story{padding-block:clamp(72px,10vw,140px)}
+.story .inner{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,90px);align-items:start}
+.story .lede{margin-top:20px}
+.story blockquote{margin-top:30px;padding-top:22px;border-top:1px solid var(--line)}
+.story .big-ph img{aspect-ratio:3/2}
+.story .pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:14px}
+.story .pair img{aspect-ratio:4/5}
+@media (max-width:860px){.story .inner{grid-template-columns:1fr}}
+
+/* Inside: a gallery wall, hung like the prints in the shack */
+.inside{background:var(--dark);color:var(--light);padding-block:clamp(72px,9vw,130px)}
+.inside .cap,.inside .who{color:#C9BBAE}
+.inside a{color:var(--light)}
+.inside-head{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);align-items:end}
+dl.facts{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:22px;row-gap:10px;font-size:18px;line-height:1.5}
+dl.facts dt{font-family:var(--display);font-size:22px;white-space:nowrap}
+dl.facts dd{margin:0;border-bottom:1px solid #4a4134;padding-bottom:10px}
+@media (max-width:860px){.inside-head{grid-template-columns:1fr}}
+.wall{margin-top:clamp(40px,6vw,80px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);align-items:start}
+.wall figure{will-change:transform}
+.wall .a{grid-column:1/8}.wall .a img{aspect-ratio:4/5}
+.wall .b{grid-column:8/13;margin-top:12%}.wall .b img{aspect-ratio:4/5}
+.wall .c{grid-column:1/6}.wall .c img{aspect-ratio:4/5}
+.wall .d{grid-column:6/13;margin-top:-18%}.wall .d img{aspect-ratio:5/4}
+.wall .e{grid-column:2/7}.wall .e img{aspect-ratio:4/5}
+.wall .f{grid-column:7/12;margin-top:8%}.wall .f img{aspect-ratio:4/5}
+.wall .g{grid-column:1/13}.wall .g img{aspect-ratio:21/9}
+@media (max-width:760px){
+  .wall{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .wall .a,.wall .g,.wall .d{grid-column:1/3;margin-top:0}
+  .wall .b,.wall .c,.wall .e,.wall .f{grid-column:auto;margin-top:0}
+  .wall .g img{aspect-ratio:4/3}
+}
+
+/* Outside: the bath, the fire and the water */
+.outside{padding-block:clamp(72px,10vw,140px)}
+.out-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:start}
+.out-grid .main img{aspect-ratio:4/5}
+.out-grid .side{display:grid;gap:22px}
+.out-grid .lede{margin-top:18px}
+.out-grid .side .ph img{aspect-ratio:3/2}
+.strip3{margin-top:clamp(28px,4vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:clamp(12px,1.6vw,22px)}
+.strip3 img{aspect-ratio:4/5}
+@media (max-width:860px){.out-grid{grid-template-columns:1fr}.strip3{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.strip3 figure:first-child{grid-column:1/3}.strip3 figure:first-child img{aspect-ratio:3/2}}
+
+/* Around the island */
+.around{background:#E4DBD0;padding-block:clamp(72px,9vw,130px)}
+.around .inner{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,6vw,90px);align-items:start}
+table.dist{width:100%;border-collapse:collapse;margin-top:24px;font-size:18px}
+table.dist th{font-weight:500;text-align:left;font-size:16px;color:var(--taupe-ink);padding:0 0 8px}
+table.dist td{padding:11px 0;border-top:1px solid #cdbfb0;vertical-align:top}
+table.dist td:last-child{text-align:right;padding-left:16px;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media (max-width:340px){table.dist td:last-child{white-space:normal;min-width:7em}}
+.addr{margin-top:20px;font-size:17px}
+.around .pics{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.around .pics img{aspect-ratio:4/5}
+.around blockquote{margin-top:26px}
+@media (max-width:860px){.around .inner{grid-template-columns:1fr}}
+
+/* Guests */
+.guests{padding-block:clamp(72px,9vw,130px)}
+.guests .inner{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,6vw,90px);align-items:start}
+.score b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(76px,10vw,140px);line-height:.9;font-variant-numeric:tabular-nums}
+.score span{display:block;margin-top:12px;font-size:19px;max-width:20em}
+.guests .door img{aspect-ratio:4/5;margin-top:30px}
+.guests ul{list-style:none;margin:0;padding:0;display:grid;gap:22px}
+.guests li{border-top:1px solid var(--line);padding-top:16px}
+.guests .more{margin-top:26px;font-size:18px}
+@media (max-width:860px){.guests .inner{grid-template-columns:1fr}.guests .door{max-width:460px}}
+
+/* Book */
+.book{background:var(--dark);color:var(--light);padding-block:clamp(72px,9vw,130px)}
+.book a:not(.btn){color:var(--light)}
+.book .inner{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,6vw,90px);align-items:start}
+.book .lede{margin-top:16px}
+.book .acts{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.book .btn.line{color:var(--light);box-shadow:inset 0 0 0 1.5px var(--light)}
+.book .btn.line:hover{background:rgba(255,255,255,.08)}
+.book h3{font-size:28px;margin-top:34px}
+.rules{margin:10px 0 0;padding-left:18px}
+.rules li{margin:4px 0}
+.book .ph img{aspect-ratio:4/5}
+.book .cap{color:#C9BBAE}
+@media (max-width:860px){.book .inner{grid-template-columns:1fr}.book .ph{max-width:520px}}
+
+/* The close: a postcard from the shack */
+.close{padding-block:clamp(64px,9vw,120px)}
+.card{max-width:1000px;margin:0 auto;background:#F7F3EE;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:2px;
+  box-shadow:0 18px 40px -22px rgba(42,36,28,.5)}
+.card .pic img{width:100%;height:100%;object-fit:cover;border-radius:2px 0 0 2px;aspect-ratio:4/5}
+.card .back{position:relative;padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px;border-left:1px dashed #cdbfb0}
+.stamp{position:absolute;top:clamp(18px,3vw,30px);right:clamp(18px,3vw,30px);width:74px;height:88px;border:2px dotted var(--taupe);display:grid;place-items:center;background:#EEE8E0}
+.stamp svg{width:48px;height:auto}
+.card .msg{padding-right:84px;font-style:italic;font-size:clamp(21px,2.2vw,26px);line-height:1.4;max-width:15em;margin-top:70px}
+.card .lines{border-top:1px solid #cdbfb0;padding-top:12px;font-size:17px;line-height:1.7}
+.card .acts{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:auto}
+@media (max-width:720px){.card{grid-template-columns:1fr}.card .pic img{border-radius:2px 2px 0 0;aspect-ratio:4/3}.card .back{border-left:0;border-top:1px dashed #cdbfb0}}
+
+footer{background:var(--dark);color:#D8CEC2;font-size:15.5px;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px))}
+footer a{color:#fff}
+footer .inner{display:grid;gap:6px}
+
+.phonebar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;gap:10px;
+  padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut);
+  background:rgba(238,232,224,.97);border-top:1px solid var(--line);transform:translateY(110%);visibility:hidden;transition:transform .25s ease-out,visibility 0s .25s}
+.phonebar.on{transform:none;visibility:visible;transition:transform .25s ease-out}
+.phonebar .btn{flex:1;min-height:50px}
+@media (max-width:860px){.phonebar{display:flex}footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
+
+@media (prefers-reduced-motion: reduce){
+  .dawn{height:auto}
+  .stage{position:relative;height:auto;overflow:visible;display:flex;flex-direction:column}
+  .view{position:relative;transform:none !important}
+  .view img{height:auto;aspect-ratio:3/2;max-height:90vh}
+  .curtain,.rod,.bird{display:none}
+  .w1{position:relative;order:-1;left:auto;right:auto;top:auto;bottom:auto;max-width:none;opacity:1 !important;transform:none !important}
+  .w1 .panel{border-radius:0;background:var(--dark);padding-top:96px}
+  .logo{color:var(--light)}
+  .top :focus-visible{outline-color:var(--light)}
+  .w2{position:relative;opacity:1 !important;transform:none !important;left:auto;right:auto;bottom:auto;max-width:none;padding:0}
+  .w2 .panel{border-radius:0;background:var(--dark)}
+  .wall figure{transform:none !important}
+  .phonebar,.phonebar.on{transition:none}
+}
+@media (prefers-reduced-motion: reduce) and (max-width:699px){.view img{aspect-ratio:3/4}}
+</style>
+</head>
+<body>
+<a class="skip" href="#book">Skip to booking</a>
+<p class="strip">A website idea made by Lamplit Studio for The Songbird. Not their official site.</p>
+
+<header class="top">
+  <a class="logo" href="#dawn" aria-label="The Songbird, back to top"><span class="t">the</span><span class="s">SONGBIRD</span></a>
+  <a class="btn taupe" href="https://www.airbnb.com.au/rooms/1444585995505005907" rel="noopener" target="_blank">Check dates</a>
+</header>
+
+<main>
+<section class="dawn" id="dawn" aria-label="The Songbird, the bath on the deck above the channel">
+  <div class="stage">
+    <div class="view">
+      <picture><source media="(min-width:700px)" srcset="img/bath-1440.jpg"><img src="img/bathwin-700.jpg" alt="The antique bath on the deck, with the D'Entrecasteaux Channel and the hills beyond" width="700" height="875" fetchpriority="high"></picture>
+    </div>
+    <div class="bird" aria-hidden="true">
+      <svg viewBox="0 0 60 40"><path d="M4 26c6-1 11-5 16-10 3-3 8-4 12-2l6-5 3 2-4 5c2 6-1 12-8 14-6 2-15 0-25-4z M24 18c3 3 8 4 12 3" fill="#2A241C" stroke="#2A241C" stroke-width="1"/></svg>
+    </div>
+    <div class="curtain c-l" aria-hidden="true">
+      <svg viewBox="0 0 400 900" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="fold" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#D9CDBD"/><stop offset=".12" stop-color="#EDE4D7"/><stop offset=".24" stop-color="#CDBFAD"/>
+            <stop offset=".38" stop-color="#E8DED0"/><stop offset=".5" stop-color="#C9BAA7"/><stop offset=".64" stop-color="#EAE0D2"/>
+            <stop offset=".78" stop-color="#CFC1AF"/><stop offset=".9" stop-color="#E9DFD1"/><stop offset="1" stop-color="#BFAF9B"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="900" fill="url(#fold)"/>
+        <rect width="400" height="900" fill="#2A241C" opacity=".08"/>
+      </svg>
+    </div>
+    <div class="curtain c-r" aria-hidden="true">
+      <svg viewBox="0 0 400 900" preserveAspectRatio="none"><rect width="400" height="900" fill="url(#fold)" transform="matrix(-1 0 0 1 400 0)"/><rect width="400" height="900" fill="#2A241C" opacity=".1"/></svg>
+    </div>
+    <div class="rod" aria-hidden="true"></div>
+    <div class="words w1">
+      <div class="panel">
+        <p class="where">Alonnah, Bruny Island</p>
+        <h1>Where the sea sings and time slows.</h1>
+        <p class="lede">A 1960s shack for two, restored by hand, metres from the D'Entrecasteaux Channel.</p>
+      </div>
+    </div>
+    <div class="words w2">
+      <div class="panel">
+        <h2>An antique French bath on the deck.</h2>
+        <p>Soak with the water in front of you and Satellite Island across the channel. The bath salts are hand-blended by Bruny Botanica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story wrap" id="story">
+  <div class="inner">
+    <div>
+      <h2 class="big">A shack with a few stories</h2>
+      <p class="lede">Alice and Luke found her on this corner of Bruny and gave her a new chapter: a little restoration, a lot of hunting for old treasures, and second-hand lamps, prints and silverware collected from far and wide.</p>
+      <blockquote>
+        <p class="quote">"Built in the 1960s, she had a good few stories to tell long before we came along. We wanted to give her a new chapter, without taking away too much of the old."</p>
+        <p class="who">Alice and Luke, on Instagram, November 2026</p>
+      </blockquote>
+    </div>
+    <div>
+      <figure class="ph big-ph"><img src="img/living-1000.jpg" srcset="img/living-600.jpg 600w, img/living-1000.jpg 1000w" sizes="(max-width:860px) 92vw, 56vw" alt="The living room with the wood fire lit, a linen sofa, a round mirror and shelves of books and pottery" width="1000" height="667" loading="lazy"><figcaption class="cap">The fire, the shelves and the daybed.</figcaption></figure>
+      <div class="pair">
+        <figure class="ph"><img src="img/corner-1000.jpg" srcset="img/corner-600.jpg 600w, img/corner-1000.jpg 1000w" sizes="(max-width:860px) 45vw, 27vw" alt="An armchair under a wall of framed bird prints and a fringed lamp" width="1000" height="1250" loading="lazy"><figcaption class="cap">Bird prints, all second-hand.</figcaption></figure>
+        <figure class="ph"><img src="img/prints-1000.jpg" srcset="img/prints-600.jpg 600w, img/prints-1000.jpg 1000w" sizes="(max-width:860px) 45vw, 27vw" alt="Three old landscape paintings in gilt frames in afternoon light" width="1000" height="1250" loading="lazy"><figcaption class="cap">Vintage landscapes on the panelling.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inside wrap" id="inside">
+  <div class="inner">
+    <div class="inside-head">
+      <div>
+        <h2 class="big">Inside</h2>
+        <p class="lede" style="margin-top:18px">Curl up on the daybed by the window with a book and a glass of wine, or watch the tide from the fire. At night the king bed is layered in natural linen, and you fall asleep to the water on the rocks.</p>
+      </div>
+      <dl class="facts">
+        <dt>Sleeps 2</dt><dd>One king bed in natural linen. One bathroom.</dd>
+        <dt>Warmth</dt><dd>A wood fire inside, with the firewood ready.</dd>
+        <dt>Kitchenette</dt><dd>Induction cooktop, kettle, toaster, French press and a stovetop percolator.</dd>
+        <dt>Bathroom</dt><dd>Walk-in shower and a marble basin, with Millie Organics.</dd>
+        <dt>To do</dt><dd>Board games, chess, and a shelf of books about Tasmania.</dd>
+      </dl>
+    </div>
+    <div class="wall" id="wall">
+      <figure class="ph a" data-d=".06"><img src="img/daybed-1000.jpg" srcset="img/daybed-600.jpg 600w, img/daybed-1000.jpg 1000w" sizes="(max-width:760px) 92vw, 56vw" alt="The daybed under the big window, looking out to the deck chairs and the channel" width="1000" height="1250" loading="lazy"><figcaption class="cap">The daybed window, over the deck and the water.</figcaption></figure>
+      <figure class="ph b" data-d="-.05"><img src="img/wine-1000.jpg" srcset="img/wine-600.jpg 600w, img/wine-1000.jpg 1000w" sizes="(max-width:760px) 45vw, 38vw" alt="Two glasses of pinot noir on a round table by the window" width="1000" height="1250" loading="lazy"><figcaption class="cap">A local pinot at the window seat.</figcaption></figure>
+      <figure class="ph c" data-d=".04"><img src="img/kitchen-1000.jpg" srcset="img/kitchen-600.jpg 600w, img/kitchen-1000.jpg 1000w" sizes="(max-width:760px) 45vw, 38vw" alt="The kitchenette with grey cabinets and a fringed floor lamp" width="1000" height="1250" loading="lazy"><figcaption class="cap">The kitchenette.</figcaption></figure>
+      <figure class="ph d" data-d="-.04"><img src="img/bed-1000.jpg" srcset="img/bed-600.jpg 600w, img/bed-1000.jpg 1000w" sizes="(max-width:760px) 92vw, 56vw" alt="The king bed with a cane bedhead, linen and a knitted throw, under framed maps" width="1000" height="800" loading="lazy"><figcaption class="cap">The king bed, under old maps and prints.</figcaption></figure>
+      <figure class="ph e" data-d=".05"><img src="img/bedwin-1000.jpg" srcset="img/bedwin-600.jpg 600w, img/bedwin-1000.jpg 1000w" sizes="(max-width:760px) 45vw, 38vw" alt="The bedroom window looking through the trees to the water" width="1000" height="1250" loading="lazy"><figcaption class="cap">The view from the pillow.</figcaption></figure>
+      <figure class="ph f" data-d="-.05"><img src="img/bathroom-1000.jpg" srcset="img/bathroom-600.jpg 600w, img/bathroom-1000.jpg 1000w" sizes="(max-width:760px) 45vw, 38vw" alt="A scalloped marble basin on a timber vanity beside an oval mirror and the shower" width="1000" height="1250" loading="lazy"><figcaption class="cap">The bathroom.</figcaption></figure>
+      <figure class="ph g"><img src="img/windowseat-1000.jpg" srcset="img/windowseat-600.jpg 600w, img/windowseat-1000.jpg 1000w" sizes="100vw" alt="The window seat with sheepskins and cushions, looking out over the trees to the channel" width="1000" height="667" loading="lazy"><figcaption class="cap">"We loved sitting at the window seat with a good book, and the fire kept us toasty warm." Kira, Airbnb review, September 2026</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="outside wrap" id="outside">
+  <div class="inner">
+    <div class="out-grid">
+      <figure class="ph main"><img src="img/bathview-1000.jpg" srcset="img/bathview-600.jpg 600w, img/bathview-1000.jpg 1000w" sizes="(max-width:860px) 92vw, 56vw" alt="Through the window and past the curtain, someone in the outdoor bath looking over the trees to the water" width="1000" height="1250" loading="lazy"><figcaption class="cap">The bath, from inside.</figcaption></figure>
+      <div class="side">
+        <div>
+          <h2 class="big">Outside</h2>
+          <p class="lede">The bath on the deck, a fire pit by the water, and a quiet stretch of beach a few metres from the back door. Evenings end at the fire as the light goes gold on the channel.</p>
+        </div>
+        <figure class="ph"><img src="img/firepit-1000.jpg" srcset="img/firepit-600.jpg 600w, img/firepit-1000.jpg 1000w" sizes="(max-width:860px) 92vw, 40vw" alt="Two white Adirondack chairs by the fire bowl, above the water and Satellite Island" width="1000" height="667" loading="lazy"><figcaption class="cap">The fire pit, looking to Satellite Island.</figcaption></figure>
+        <blockquote>
+          <p class="quote">"We saw dolphins and seals from the deck chairs"</p>
+          <p class="who">Catie, Airbnb review, October 2026</p>
+        </blockquote>
+      </div>
+    </div>
+    <div class="strip3">
+      <figure class="ph"><img src="img/shack-1000.jpg" srcset="img/shack-600.jpg 600w, img/shack-1000.jpg 1000w" sizes="(max-width:860px) 92vw, 40vw" alt="The grey weatherboard shack from the fire pit, with the bath and the chairs out the front" width="1000" height="1250" loading="lazy"><figcaption class="cap">The shack, from the fire.</figcaption></figure>
+      <figure class="ph"><img src="img/beach-1000.jpg" srcset="img/beach-600.jpg 600w, img/beach-1000.jpg 1000w" sizes="(max-width:860px) 45vw, 32vw" alt="A woman in a wool blanket sitting on the pebbles of the beach below the trees" width="1000" height="1250" loading="lazy"><figcaption class="cap">The beach below the shack.</figcaption></figure>
+      <figure class="ph"><img src="img/salts-1000.jpg" srcset="img/salts-600.jpg 600w, img/salts-1000.jpg 1000w" sizes="(max-width:860px) 45vw, 24vw" alt="A jar of Bruny Botanica bath salts on a log beside the bath" width="1000" height="1250" loading="lazy"><figcaption class="cap">Bruny Botanica salts.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="around wrap" id="around">
+  <div class="inner">
+    <div>
+      <h2 class="big">Around Bruny</h2>
+      <p class="lede" style="margin-top:16px">Alonnah sits in the middle of the island, so the cheese, the lighthouse and Adventure Bay are all an easy drive. The pub is just up the road.</p>
+      <table class="dist">
+        <thead><tr><th scope="col">From the shack</th><th scope="col"><span class="vh">Distance and time</span></th></tr></thead>
+        <tbody>
+          <tr><td>Hotel Bruny</td><td>about 1 km</td></tr>
+          <tr><td>Adventure Bay</td><td>15 km, about 16 min</td></tr>
+          <tr><td>Bruny Island Cheese Company</td><td>22 km, about 25 min</td></tr>
+          <tr><td>Cape Bruny Lighthouse</td><td>23 km, about 50 min</td></tr>
+          <tr><td>The ferry at Roberts Point</td><td>37 km, about 40 min</td></tr>
+          <tr><td>Hobart to the Kettering ferry</td><td>33 km, about 35 min</td></tr>
+        </tbody>
+      </table>
+      <p class="addr">4044 Bruny Island Main Road, Alonnah, Tasmania 7150. <a href="https://www.google.com/maps/search/?api=1&amp;query=4044%20Bruny%20Island%20Main%20Road%20Alonnah%20TAS%207150" rel="noopener" target="_blank">Open in Google Maps</a></p>
+      <blockquote>
+        <p class="quote">"we appreciated the option of getting the local hamper"</p>
+        <p class="who">Camille, Airbnb review, September 2026</p>
+      </blockquote>
+    </div>
+    <div class="pics">
+      <figure class="ph"><img src="img/bread-1000.jpg" srcset="img/bread-600.jpg 600w, img/bread-1000.jpg 1000w" sizes="(max-width:860px) 45vw, 22vw" alt="Three old fridges under a gum tree, one painted BREAD, at The Bruny Baker's honesty box" width="1000" height="1250" loading="lazy"><figcaption class="cap">The Bruny Baker's honesty box, just down the road.</figcaption></figure>
+      <figure class="ph"><img src="img/platter-1000.jpg" srcset="img/platter-600.jpg 600w, img/platter-1000.jpg 1000w" sizes="(max-width:860px) 45vw, 22vw" alt="A platter of local cheese, seafood and relishes by the fire pit" width="1000" height="1250" loading="lazy"><figcaption class="cap">A platter, arranged before you arrive.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="guests wrap" id="guests">
+  <div class="inner">
+    <div>
+      <p class="score"><b>4.95</b><span>from 139 guest reviews on Airbnb, where The Songbird is a Guest favourite.</span></p>
+      <figure class="ph door"><img src="img/doors-1000.jpg" srcset="img/doors-600.jpg 600w, img/doors-1000.jpg 1000w" sizes="(max-width:860px) 92vw, 36vw" alt="Someone on the sofa looking out through the glass French doors to the water" width="1000" height="1250" loading="lazy"><figcaption class="cap">The French doors to the deck.</figcaption></figure>
+    </div>
+    <ul>
+      <li><p class="quote">"Highlights were a bath beneath the Milky Way and games of chess by the fire."</p><p class="who">Leigh, August 2026</p></li>
+      <li><p class="quote">"spent mornings watching wrens and robins from the window lounge"</p><p class="who">Chris, April 2026</p></li>
+      <li><p class="quote">"even having a visit from a beautiful white-bellied sea eagle!"</p><p class="who">Eliška, September 2026</p></li>
+      <li><p class="quote">"falling asleep to the sound of the water lapping at the shore."</p><p class="who">Kia, June 2026</p></li>
+      <li><p class="quote">"The resident echidna was the cutest!"</p><p class="who">Juliet, February 2026</p></li>
+      <li><p class="quote">"This was our second stay at Songbird which we enjoyed equally as our first."</p><p class="who">Clair, August 2026</p></li>
+      <li><p class="more"><a href="https://www.airbnb.com.au/rooms/1444585995505005907/reviews" rel="noopener" target="_blank">Read all 139 reviews on Airbnb</a></p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="book wrap" id="book">
+  <div class="inner">
+    <div>
+      <h2 class="big">Book your stay</h2>
+      <p class="lede">Most nights to the end of summer are already taken, so check the calendar early. Two-night minimum on most dates.</p>
+      <div class="acts">
+        <a class="btn taupe" href="https://www.airbnb.com.au/rooms/1444585995505005907" rel="noopener" target="_blank">Check dates</a>
+        <a class="btn line" href="tel:+61428193980">Call 0428 193 980</a>
+      </div>
+      <h3>Good to know</h3>
+      <ul class="rules">
+        <li>For two. Check in after 2pm with the key safe, check out by 10am.</li>
+        <li>One open room: the bed and the living area share the space.</li>
+        <li>Single level, with parking on site.</li>
+        <li>Kingborough Council registration DA-2025-158.</li>
+      </ul>
+      <p style="margin-top:22px;font-size:17px">We acknowledge the Nuenonne people as the Traditional Custodians of Lunawanna-alonnah (Bruny Island).</p>
+    </div>
+    <figure class="ph"><img src="img/shore-1000.jpg" srcset="img/shore-600.jpg 600w, img/shore-1000.jpg 1000w" sizes="(max-width:860px) 92vw, 40vw" alt="Someone in a check blanket on the pebble shore, looking across the channel to the hills" width="1000" height="1250" loading="lazy"><figcaption class="cap">The channel at the end of the day.</figcaption></figure>
+  </div>
+</section>
+
+<section class="close wrap" aria-label="A postcard from The Songbird">
+  <div class="card">
+    <figure class="pic"><img src="img/firepit-1000.jpg" srcset="img/firepit-600.jpg 600w, img/firepit-1000.jpg 1000w" sizes="(max-width:720px) 92vw, 500px" alt="" width="1000" height="667" loading="lazy"></figure>
+    <div class="back">
+      <div class="stamp" aria-hidden="true"><svg viewBox="0 0 60 40"><path d="M4 26c6-1 11-5 16-10 3-3 8-4 12-2l6-5 3 2-4 5c2 6-1 12-8 14-6 2-15 0-25-4z" fill="#6E5A4A"/></svg></div>
+      <p class="msg">"A shack by the water, a fire to come home to and not too much else to think about."</p>
+      <p class="lines">The Songbird<br>4044 Bruny Island Main Road<br>Alonnah, Tasmania 7150</p>
+      <div class="acts">
+        <a class="btn" href="https://www.airbnb.com.au/rooms/1444585995505005907" rel="noopener" target="_blank">Check dates</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="phonebar" id="phonebar">
+  <a class="btn" href="https://www.airbnb.com.au/rooms/1444585995505005907" rel="noopener" target="_blank">Check dates</a>
+  <a class="btn line" href="tel:+61428193980">Call</a>
+</div>
+
+<footer class="wrap">
+  <div class="inner">
+    <p>A preview made by Lamplit Studio for The Songbird. Not affiliated, not live.</p>
+    <p>Photos from The Songbird's Airbnb listing, many by Renee Thurston. Guest words from Airbnb reviews. Distances by road from OpenStreetMap.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduce=rm.matches;
+  if(rm.addEventListener) rm.addEventListener('change',function(){location.reload();});
+  var clamp=function(v,a,b){return Math.max(a,Math.min(b,v));};
+  var seg=function(p,a,b){return clamp((p-a)/(b-a),0,1);};
+  var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
+
+  var dawn=document.getElementById('dawn'), stage=dawn.querySelector('.stage');
+  var view=dawn.querySelector('.view'), cl=dawn.querySelector('.c-l'), cr=dawn.querySelector('.c-r'), rod=dawn.querySelector('.rod');
+  var bird=dawn.querySelector('.bird'), w1=dawn.querySelector('.w1'), w2=dawn.querySelector('.w2');
+  var wall=[].slice.call(document.querySelectorAll('#wall [data-d]'));
+  var bar=document.getElementById('phonebar'), book=document.getElementById('book'), closeSec=document.querySelector('.close');
+
+  var ticking=false;
+  function frame(){
+    ticking=false;
+    var vh=window.innerHeight;
+    var past=dawn.getBoundingClientRect().bottom<vh*.5;
+    var bk=book.getBoundingClientRect(), cs=closeSec.getBoundingClientRect();
+    bar.classList.toggle('on',past&&!((bk.top<vh&&bk.bottom>0)||(cs.top<vh&&cs.bottom>0)));
+    if(reduce) return;
+
+    var r=dawn.getBoundingClientRect();
+    var p=clamp(-r.top/Math.max(1,dawn.offsetHeight-stage.offsetHeight),0,1);
+
+    // The linen curtains are the nearest plane: they draw back fastest and leave the frame.
+    var c0=window.innerWidth<700?.42:.3; // they start half drawn, so the bath shows from the first screen
+    var c=c0+(1-c0)*ease(seg(p,0,.45));
+    cl.style.transform='translate3d('+(-c*104)+'%,0,0) scaleX('+(1-.25*c).toFixed(3)+')';
+    cr.style.transform='translate3d('+(c*104)+'%,0,0) scaleX('+(1-.25*c).toFixed(3)+')';
+    rod.style.transform='translate3d(0,'+(-c*24)+'px,0)';
+    // The view is far away: it eases back only a little.
+    view.style.transform='scale('+(1.16-.16*ease(seg(p,0,.85))).toFixed(4)+')';
+    // A songbird crosses the window once the curtains are open.
+    var b=seg(p,.3,.8);
+    bird.style.opacity=(b>0&&b<1?Math.min(1,b*6,(1-b)*6):0).toFixed(3);
+    bird.style.transform='translate3d('+(b*(window.innerWidth+60)-60)+'px,'+(-Math.sin(b*Math.PI)*40)+'px,0)';
+    w1.style.opacity=(1-seg(p,.12,.26)).toFixed(3);
+    w1.style.transform='translate3d(0,'+(-36*seg(p,.12,.26))+'px,0)';
+    var w=seg(p,.6,.74);
+    w2.style.opacity=w.toFixed(3);
+    w2.style.transform='translate3d(0,'+(22*(1-w))+'px,0)';
+
+    // The gallery wall: frames drift at slightly different speeds, like prints hung at different depths.
+    for(var i=0;i<wall.length;i++){
+      var f=wall[i], fr=f.getBoundingClientRect();
+      if(fr.bottom<-200||fr.top>vh+200) continue;
+      var mid=(fr.top+fr.height/2-vh/2);
+      f.style.transform='translate3d(0,'+(mid*parseFloat(f.dataset.d)).toFixed(1)+'px,0)';
+    }
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame);}}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  window.addEventListener('load',onScroll);
+  frame();
+})();
+</script>
+</body>
+</html>
